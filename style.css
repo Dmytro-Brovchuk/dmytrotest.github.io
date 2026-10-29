@@ -1,4 +1,5 @@
 
+/* Загальні стилі */
 * {
     margin: 0;
     padding: 0;
@@ -6,197 +7,149 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
-}
-
-.container {
-    width: 100%;
-    max-width: none;
+    background: radial-gradient(circle, #142b4d, #050914);
     min-height: 100vh;
-    margin: 0;
     display: flex;
     flex-direction: column;
-}
-
-/* Шапка */
-header {
-    background-color: #ff7955;
-    padding: 15px 25px;
-    display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    font-family: Arial, sans-serif;
     color: white;
+    overflow: hidden;
 }
 
-/* Основна частина сторінки */
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Заголовок категорії */
-.category-title {
-    padding: 2vh;
-    flex-shrink: 0;
-}
-
-/* Сітка товарів */
-.products {
-    flex: 1;
-    align-content: stretch;
-    grid-template-rows: repeat(2, minmax(0, 1fr));
-}
-
-/* Зображення товарів */
-.product-image {
-    height: clamp(90px, 13vh, 140px);
-}
-
-/* Підвал */
-footer {
-    flex-shrink: 0;
-}
-
-/* Мобільна версія */
-@media (max-width: 600px) {
-    .products {
-        grid-template-rows: auto;
-    }
-}
-
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 14px;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Заголовок категорії */
-.category-title {
-    background-color: #b9dfd1;
+/* Заголовок */
+h1 {
+    margin-bottom: 40px;
     text-align: center;
-    padding: 25px;
-    color: #14534e;
-    font-size: 36px;
+    font-size: 28px;
 }
 
-/* Секція товарів */
-.products {
-    background-color: #fff3df;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-}
-
-/* Картка товару */
-.product {
-    text-align: center;
-    color: #174c4c;
-}
-
-.product figure {
-    margin-bottom: 8px;
-}
-
-.product-image {
-    height: 120px;
-    width: 100%;
+/* Космічний простір */
+.space {
+    width: 450px;
+    height: 450px;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 7px;
-    font-size: 65px;
 }
 
-.product figcaption {
-    font-size: 14px;
-    font-weight: bold;
-    margin-top: 5px;
+/* Земля */
+.earth {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    position: absolute;
+    overflow: hidden;
+    background: linear-gradient(
+        135deg,
+        #1e90ff,
+        #003366,
+        #00152b
+    );
+    box-shadow:
+        0 0 25px #168bff,
+        0 0 60px rgba(30, 144, 255, 0.5);
+    z-index: 2;
 }
 
-.product p {
-    font-size: 12px;
-    line-height: 1.4;
-    margin: 5px 0;
+/* Поверхня Землі */
+.earth-surface {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background:
+        radial-gradient(ellipse at 35% 30%,
+            #4caf50 0%, transparent 20%),
+        radial-gradient(ellipse at 65% 55%,
+            #62b84c 0%, transparent 25%),
+        radial-gradient(ellipse at 30% 75%,
+            #278c47 0%, transparent 18%);
+    animation: earthRotate 12s linear infinite;
 }
 
-.price {
-    font-weight: bold;
-    font-size: 14px;
-    margin: 7px 0;
+/* Орбіта Місяця */
+.orbit {
+    width: 360px;
+    height: 360px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    position: absolute;
+
+    animation: orbitRotate 8s linear infinite;
 }
 
-/* Кнопка */
-.product button {
-    background-color: #ff7955;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 7px;
-    cursor: pointer;
-    font-size: 12px;
-    transition: 0.3s;
+/* Місяць */
+.moon {
+    width: 45px;
+    height: 45px;
+    background: radial-gradient(
+        circle at 35% 30%,
+        #ffffff,
+        #c5c5c5 60%,
+        #777777
+    );
+    border-radius: 50%;
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.8),
+        0 0 30px rgba(255, 255, 255, 0.3);
+
+    animation: moonRotate 8s linear infinite;
 }
 
-.product button:hover {
-    background-color: #e65c3b;
-    transform: scale(1.05);
-}
-
-/* Кольори карток */
-.flower1 { background-color: #f9d7b0; }
-.flower2 { background-color: #d8c8e8; }
-.flower3 { background-color: #b9dfd1; }
-.flower4 { background-color: #fbd58b; }
-.flower5 { background-color: #c4e1df; }
-.flower6 { background-color: #ffd2b2; }
-.flower7 { background-color: #c9d9b5; }
-.flower8 { background-color: #f8c5c5; }
-
-/* Підвал */
-footer {
-    background-color: #ff7955;
-    height: 75px;
-    text-align: center;
-    color: white;
-    padding: 25px;
-    font-size: 13px;
-}
-
-/* Адаптивність */
-@media (max-width: 600px) {
-    .products {
-        grid-template-columns: repeat(2, 1fr);
+/* Обертання орбіти */
+@keyframes orbitRotate {
+    from {
+        transform: rotate(0deg);
     }
 
-    .category-title {
-        font-size: 28px;
-    }
-
-    header {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    nav a {
-        margin: 0 8px;
+    to {
+        transform: rotate(360deg);
     }
 }
 
-@media (max-width: 350px) {
-    .products {
-        grid-template-columns: 1fr;
+/* Обертання Землі */
+@keyframes earthRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Обертання Місяця навколо власної осі */
+@keyframes moonRotate {
+    from {
+        transform: translateX(-50%) rotate(0deg);
+    }
+
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+/* Підпис */
+.description {
+    margin-top: 30px;
+    color: #b9c9e2;
+    font-size: 16px;
+}
+
+/* Адаптація під мобільні пристрої */
+@media (max-width: 500px) {
+    .space {
+        transform: scale(0.75);
+    }
+
+    h1 {
+        font-size: 21px;
     }
 }
